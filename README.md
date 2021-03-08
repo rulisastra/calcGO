@@ -1,12 +1,15 @@
 # [calcGO](https://github.com/rulisastra/calcGO)
 
+on going...
+
 - [ ] Flowchart
 - [ ] Screenshoot
-- [ ] useful resources
-- 
+- [ ] Useful resources and blogs
 
 ---
 
-### How to use :relaxed:
-    :relaxed:
-:relaxed:
+### How to use this repo :relaxed:
+
+1. clone this repo
+2. run `go run ./calcGo.exe`
+--- 
