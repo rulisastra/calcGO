@@ -5,6 +5,7 @@ on going...
 - [ ] Flowchart
 - [ ] Screenshoot
 - [ ] Useful resources and blogs
+    - [first youtube](https://www.youtube.com/watch?v=QAwXt-zE7so)
 
 ---
 
