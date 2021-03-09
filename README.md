@@ -12,4 +12,7 @@ on going...
 
 1. clone this repo
 2. run `go run ./calcGo.exe`
---- 
+---
+
+## flowchart
+
