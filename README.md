@@ -17,3 +17,13 @@ on going...
 
 ## flowchart
 
+- when it panicked because divided by zero, do this
+```
+	// handle panic
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Ran into an error")
+			main()
+		}
+	}()
+```
