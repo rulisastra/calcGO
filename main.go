@@ -3,28 +3,45 @@ package main
 import (
 	"fmt"
 
-	"github.com/gin-gonic/contrib/cors"
-	"github.com/gin-gonic/gin"
+	"github.com/gorilla/mux"
 )
 
-func main() {
-	setupServer().Run(":2001")
-	fmt.Println("running at localhost:2001...")
-
+type Result struct {
+	Function
 }
 
-func setupServer() *gin.Engine {
+func main () {
+	router := mux.NewRouter()
+	router.HandleFunc("/api/calculator/add", Add())
 
-	router := *gin.Default()
+func Calc(w http.ResponseWriter, r *http.Request){
+	var countResult []countResult
+	var firstNumber []firstNumber
+	var secondNumber []secondNumber
 
-	cfg := cors.DefaultConfig()
-	cfg.AllowAllOrigins = true
-	cfg.AllowCredentials = true
-	cfg.AllowMethods = []string{"GET", "POST"}
-	cfg.AllowHeaders = []string{"Authorization", "Origin", "Accept", "X-Requested-With", " Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers"}
-	router.Use(cors.New(cfg))
+	// handle panic error
+	if r.Method != "POST" {
+		wrapAPIError(w, r, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+		return
+	}
 
-	router.POST("/api/calculator", Calculator)
+	body, err := ioutil.ReadAll(r.Body)
+	defer r.Body.Close() // i dont know what does it for
+	if err != nil {
+		wrapAPIError(w, r, "can't read the body", http.StatusBadRequest)
+		return
+	}
 
-	return router
+	err = json.Unmarshal(body, &firstNumber)
+	if err != nil {
+		wrapAPIError(w, r, "error unmarshal : " + err.Errpr(), http.StatusInternalServerError)
+		return
+	}
+
+	for _, v := range firstNumber {
+		countResult = append(countResult, Result{
+			
+		})
+	}
+
 }
